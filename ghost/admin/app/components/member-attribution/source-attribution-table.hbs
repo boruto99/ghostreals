@@ -39,6 +39,35 @@
                     <p>No sources.</p>
                 </div>
             {{/each}}
+            {{#if this.others}}
+                <a class="gh-dashboard-list-item"
+                    {{on "click" this.openAllSources}}
+                >
+                    <div class="gh-dashboard-list-item-sub gh-dashboard-list-item-sub-source gh-dsahboard-list-item-other-source">
+                        <span class="gh-dashboard-list-text">Other</span>
+                    </div>
+                    <div class="gh-dashboard-list-item-sub">
+                        <span class="gh-dashboard-metric-minivalue">
+                            {{#if this.others.signups}}
+                                {{format-number this.others.signups}}
+                            {{else}}
+                                &mdash;
+                            {{/if}}
+                        </span>
+                    </div>
+                    {{#if this.membersUtils.paidMembersEnabled}}
+                        <div class="gh-dashboard-list-item-sub">
+                            <span class="gh-dashboard-metric-minivalue">
+                                {{#if this.others.paidConversions}}
+                                    {{format-number this.others.paidConversions}}
+                                {{else}}
+                                    &mdash;
+                                {{/if}}
+                            </span>
+                        </div>
+                    {{/if}}
+                </a>
+            {{/if}}
         </div>
     </div>
 </div>
